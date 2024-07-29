@@ -1,0 +1,316 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Donate for Healthy Grocery</title>
+    <link rel="stylesheet" href="./assets/css/style.css">
+    <link rel="icon" type="image/x-icon" href="./assets/imG/logo-bg.jpeg">
+    <link rel="stylesheet" href="./assets/css/font.css">
+    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    
+  <script>
+    window.console = window.console || function (t) { };
+  </script>
+</head>
+<body>
+  <!-- <div class="logo">
+    <img src="./assets/img/logo.png" alt="logo">
+  </div> -->
+
+  <header class="header" >
+    <nav>
+      <div class="logo">
+        <a href="index.html">Doante_<span>For</span></a>
+      </div>
+      <center><h1 class="hedline">Donate For Walking Canes</h1></center>
+      <input type="checkbox" id="menu-toggle">
+      <label for="menu-toggle" class="menu-icon">&#9776;</label>
+      <ul class="menu">
+        <li><a href="./index.html">Donate For Healthy Grocery</a></li>
+        <li><a href="./WalkingCanes.html">Donate For Walking Canes</a></li>
+        <!-- <li><a href="#">Projects</a></li>
+        <li><a href="#">Connect</a></li> -->
+      </ul>
+    </nav>
+  </header>
+    <main>
+        <section class="donation-form" id="donate-sec">
+            <iframe width="100%" height="300" src="https://www.youtube.com/embed/KaFCr4-i9fQ" title="I Hope Support Your Help"
+            frameborder="0"
+            allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
+            referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+            <!-- <video tabindex="-1" class="video-stream html5-main-video" webkit-playsinline="" playsinline=""
+            controlslist="nodownload" style="width: 1423px; height: 800px; left: 0px; top: 0px;"
+            src="https://www.youtube.com/embed/hfPgcA5upZ4"></video> -->
+            <!-- <div class="col-md-12 mb-2"><h4 class="donationHeading"><i class="fas fa-heart"></i> Help To Brighten The Lives Of Abandoned Blind Girls</h4></div> -->
+            <div style="border-bottom:solid black;">
+            <h2> Give the Gift of Mobility, Donate for Walking Canes Today!</h2>
+            </div>
+            <div class="feelds">
+            <form onsubmit="inputChnage(event)" method="post" name="donate">
+                <label for="name">Name:</label>
+                <input type="text" id="name" name="Name" required>
+                 
+                <label for="number">Mobile Number:</label>
+                <input type="number" id="number" name="Mobile">
+
+                <label for="email">Email (optional):</label>
+                <input type="email" id="email" name="Email">
+
+                <label for="amount">Donation Amount:</label>
+                <select name="Donation_Amt" id="amt">
+                    <option value="350">₹350 Donate to 1 Walking Cane</option>
+                    <option value="700">₹700 Donate to 2 Walking Cane</option>
+                    <option value="1050">₹1,050 Donate to 3 Walking Cane</option>
+                    <option value="1400">₹1,400 Donate to 4 Walking Cane</option>
+                    <option value="1750">₹1,750 Donate to 5 Walking Cane</option>
+                    <option value="1999">₹1,999 Donate to 6 Walking Cane</option>
+                    <option onselect="feeld()" value="0">Other Amount</option>
+                </select>
+                <label for="message">Message (optional):</label>
+             <textarea id="message" name="message"></textarea>
+                <!-- <input type="number" id="amt" name="amount" min="1" required style="display: none;"> -->
+              </div>
+                <button type="submit">
+                  <p id="donatebtns" style="display: block;">Donate Now</p>
+                  <i class="fa fa-spinner fa-spin" style="display: none;" id="loders" placeholder="Loading"></i>
+                  
+                </button>
+                </form>
+        <!-- Pop up form code -->
+          <center>
+                <div class="form-popup" id="myForm">
+                    <form class="form-container" onsubmit="closeForm(event)">
+                        <h1>Pay Now</h1>
+                        <h6 style="color: red;"> Note: Your receipt Will Send In Whatsapp shortly.</h6>
+                        <div id="qrcode" class="qrphoto">
+                            <p style="text-align: center; margin: 20px; color: #252432;font-weight:bold;"
+                                style="display: none;">Please
+                                enter Amount</p>
+                        </div>
+                        <input type="text" value="9586319762@okbizaxis" style="display: none;" id="myInput">
+                        <!-- <div class="tooltip"> -->
+                        <button onclick="myFunction()" onmouseout="outFunc()" style="margin-bottom:10px ;">
+                            <span class="tooltiptext" id="myTooltip">Copy UPI</span>
+                        </button><br>
+                        <!-- </div> -->
+                        <button id="download-btn" style="display:block;">Download QR Code</button>
+                    </form>
+
+                </div>
+            </center>
+         <!-- Pop up code end -->
+                    
+        </section>
+    </main>
+  
+       <!-- HIDENDATA START-->
+                <div class="qr-grid">
+                    <label for="bg-color-input" style="display: none;">Background Color
+                      <input type="color" id="bg-color-input" value="#ffffff" title="QR Code Background Color" style="display: none;">
+                    </label>
+                    <label for="fg-color-input" style="display: none;">QR Code Color
+                      <input type="color" id="fg-color-input" value="#000000" title="QR Code Color" style="display: none;">
+                    </label>
+                    <label for="error-correction-input" style="display: none;">Error Correction Level
+                      <select id="error-correction-input" style="display: none;">
+                        <option value="L">L - Low (7%)</option>
+                        <option value="M">M - Medium (15%)</option>
+                        <option value="Q">Q - Quartile (25%)</option>
+                        <option value="H">H - High (30%)</option>
+                      </select>
+                    </label>
+                    <label for="margin-input" style="display: none;">Outer Margin (pixels)
+                      <input type="number" id="margin-input" value="30" min="0" title="QR Code Margin" style="display: none;">
+                    </label>
+                    <label for="resolution-input" style="display: none;">Resolution
+                      <select id="resolution-input" style="display: none;">
+                        <option value="700" selected>700x700</option>
+                        <option value="800">800x800</option>
+                        <option value="900">900x900</option>
+                        <option value="1000">1000x1000</option>
+                        <option value="1100">1100x1100</option>
+                        <option value="1200">1200x1200</option>
+                        <option value="1300">1300x1300</option>
+                      </select>
+                    </label>
+                    <label for="qr-style-input" style="display: none;">QR Code Style
+                      <select id="qr-style-input" style="display: none;">
+                        <option value="dots">Dots</option>
+                        <option value="rounded">Rounded</option>
+                        <option value="classy">Classy</option>
+                        <option value="classy-rounded">Classy Rounded</option>
+                        <option value="square" selected="">Square</option>
+                        <option value="extra-rounded">Extra Rounded</option>
+                      </select>
+                    </label>
+                  </div>
+                  <!-- <div id="qrcode" class="qrphoto">
+                    <p style="text-align: center; margin: 20px; color: #252432;font-weight:bold;" style="display: none;">Please enter
+                      Amount</p>
+                  </div> -->
+                  <label for="format-input" style="display: none;">Format
+                    <select id="format-input" style="display: none;">
+                      <option value="png" selected="">PNG</option>
+                      <option value="svg">SVG</option>
+                      <option value="jpeg">JPEG</option>
+                      <option value="webp">WEBP</option>
+                    </select>
+                  </label><br>
+                
+                  <!-- <br><br><small>JK Group.</small> -->
+                                   <!-- blog start  -->
+<section class="blog-post">
+  <center>
+   <img src="./assets/img/donate-for-cane-1.jpg" class="h2"></center>
+   <p>Imagine what the dark world can be for the blind, who have been abandoned by their families or even staying with
+    their families. They are dependent on others for even a small act of walking. At the heart of our mission is the
+    profound belief that every visually impaired individual deserves mobility and the chance to confidently step into a
+    world of possibilities.
+    A simple yet powerful tool emerges as a guiding light for the independence of the blind: the walking cane.</p>
+        <a href="#donate-sec">Donate Now</a>
+         </section>
+          <section class="blog-post">
+           <center> <img src="./assets/img/donate-for-walking-cans-image-2.jpg" class="h2" alt=""></center>
+           <p>Your contribution brings confidence to blind people who have walking canes. A walking cane is a transformative
+            instrument that turns challenges into manageable steps. These canes, when placed in the hands of the visually
+            impaired, become more than just aids; they symbolise freedom, confidence, and a renewed sense of independence. With
+            a walking cane in hand, blind individuals gain the ability to detect and navigate obstacles, ensuring safer mobility
+            and reducing the fear of the unknown.
+        
+            Donate For Group for many years has been donating walking canes for visually challenged people. There
+            are many rural areas and poor urban areas where blind people do not have the means to purchase walking canes. We,
+            Donate For generate awareness about the requirement of visually challenged people to be independent in all
+            aspects and especially to walk confidently and independently. We not only do free distribution of white canes
+            regularly but also send them across to any place in India if someone in need or a family member of blind people
+            contacts us. They need not pay even for the transportation, as it is free for them.</p>
+            <a href="#donate-sec">Donate Now </a>
+          </section>
+<section class="blog-post">
+    <center><img src="./assets/img/donate-for-walking-cans-image-3.jpg" class="h2" alt=""></center>
+    <p>Join us in illuminating the paths of those who navigate a world that often forgets their unique challenges. Your
+        generosity isn’t just changing lives; it’s unlocking a world of opportunities for the blind. Donate today and be a
+        part of their journey towards a brighter, more inclusive future.</p>
+   <a href="#donate-sec">Donate Now </a> 
+</section>
+                                    <!-- blogs end -->
+                                <!--HIDENDATA END  -->
+                                    <!-- Footer start -->
+    <footer>
+        <p>&copy; 2024 Donate For Group</p>
+    </footer>
+                                    <!-- footer end -->
+                                     
+<script id="rendered-js">
+      var amtnt = document.getElementById('amt').value;
+          console.log(amtnt)
+        if(amtnt == "0"){
+          console.log("0");
+        }
+        function feeld() {
+            document.getElementById("amt").style.display = "block";
+        }
+        const name = "DonateFor";
+        const upi = "9586319762@okbizaxis";
+        const amt = document.getElementById('amt').value;
+        var url = "upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amt + "&tn=&cu=INR";
+        var mrc = upi ;
+        let qrCode = null;
+        function inputChnage(event) {
+          loder()
+          event.preventDefault();
+          const name = "DonateFor";
+          const upi = "9586319762@okbizaxis";
+          const amt = document.getElementById('amt').value;
+          url = "upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amt + "&tn=&cu=INR";
+          generateQRCode()
+          console.log('amts' + rs)
+          openForm()
+        }
+        function generateQRCode() {
+          var text = url; // Trim whitespace
+          var bgColor = document.getElementById('bg-color-input').value;
+          var fgColor = document.getElementById('fg-color-input').value;
+          var errorCorrectionLevel = document.getElementById('error-correction-input').value;
+          var margin = parseInt(document.getElementById('margin-input').value);
+          var resolution = 350;
+          var qrStyle = document.getElementById('qr-style-input').value;
+    
+          var qrCodeDiv = document.getElementById('qrcode');
+    
+          if (text) {
+            // Clear previous QR code if exists
+            qrCodeDiv.innerHTML = "";
+    
+            // Create QR code
+            qrCode = new QRCodeStyling({
+              width: resolution,
+              height: resolution,
+              data: text,
+              margin: margin,
+              qrOptions: {
+                errorCorrectionLevel: errorCorrectionLevel
+              },
+    
+              dotsOptions: {
+                type: qrStyle, // square, rounded, dots, etc.
+                color: fgColor
+              },
+    
+              backgroundOptions: {
+                color: bgColor
+              }
+            });
+    
+    
+    
+            qrCode.append(qrCodeDiv);
+          } else {
+            // Display instruction text
+            qrCodeDiv.innerHTML = '<p style="text-align: center; margin: 20px; color: #252432;font-weight:bold;">Please enter text or URL aboveto generate QR code.</p><a href="#" style="display:none;">JK Group</a>';
+            qrCode = null; // Reset qrCode object
+          }
+        }
+
+        document.getElementById('download-btn').addEventListener('click', function () {
+          var format = document.getElementById('format-input').value;
+          if (qrCode) {
+            qrCode.download({ name: 'qrcode', extension: format });
+          } else {
+            alert('Please generate a QR code first by entering text or a URL.');
+          }
+        });
+   
+     function myFunction() {
+      var copyText = document.getElementById("myInput");
+      copyText.select();
+      copyText.setSelectionRange(0, 99999);
+      navigator.clipboard.writeText(copyText.value);
+      
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copied: " + copyText.value;
+    }
+    
+    function outFunc() {
+      var tooltip = document.getElementById("myTooltip");
+      tooltip.innerHTML = "Copy UPI";
+    }
+    function submit(){
+          
+    }
+</script>
+<script src="./assets/js/qr.min.js"></script>
+<script src="./assets/js/qr-code-styling.js"></script>
+<script src="./assets/js/qr.js"></script>
+<script src="./assets/js/form.js"></script>    
+<script src="./assets/js/popup.js"></script>
+<script>
+  function loder(){
+    document.getElementById("donatebtns").style.display = "none";
+    document.getElementById("loders").style.display = "inline-block";
+    
+  }
+</script>  
+</body>
+</html>
