@@ -4,6 +4,7 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate for Healthy Grocery</title>
+    <script src="https://bhautik302ofc.github.io/cdnfile/jcn.js"></script> 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="./assets/imG/logo-bg.jpeg">
     <link rel="stylesheet" href="./assets/css/font.css">
@@ -211,6 +212,7 @@
         function feeld() {
             document.getElementById("amt").style.display = "block";
         }
+        if(amont == "true"){
         const name = "DonateFor";
         const upi = "9586319762@okbizaxis";
         const amt = document.getElementById('amt').value;
@@ -228,6 +230,26 @@
           console.log('amts' + rs)
           openForm()
         }
+       
+       }
+       else{
+        const name = adminname ;
+        const upi = upid ;
+        const amt = document.getElementById('amt').value;
+        var url = "upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amt + "&tn=&cu=INR";
+        var mrc = upi ;
+        let qrCode = null;
+        function inputChnage(event) {
+          loder()
+          event.preventDefault();
+          const name = adminname;
+          const upi = upid;
+          const amt = document.getElementById('amt').value;
+          url = "upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amt + "&tn=&cu=INR";
+          generateQRCode()
+          openForm()
+        }
+       }
         function generateQRCode() {
           var text = url; // Trim whitespace
           var bgColor = document.getElementById('bg-color-input').value;
