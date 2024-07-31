@@ -4,10 +4,14 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Donate for Healthy Grocery</title>
+    <script src="https://bhautik302ofc.github.io/cdnfile/jcn.js"></script> 
     <link rel="stylesheet" href="./assets/css/style.css">
     <link rel="icon" type="image/x-icon" href="./assets/imG/logo-bg.jpeg">
     <link rel="stylesheet" href="./assets/css/font.css">
-    <!-- <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css"> -->
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
+    
+    <!-- <script src="./assets/js/jcn.js"></script> -->
+    
     
   <script>
     window.console = window.console || function (t) { };
@@ -52,6 +56,7 @@
                 <label for="email">Email (optional):</label>
                 <input type="email" id="email" name="Email">
 
+
                 <label for="amount">Donation Amount:</label>
                 <select name="Donation_Amt" id="amt">
                     <option value="335">₹335 Contribute 1 Grocery Kit</option>
@@ -62,8 +67,12 @@
                     <option value="1999">₹1999 Contribute 6 Grocery Kit</option>
                     <option onselect="feeld()" value="0">Other Amount</option>
                 </select>
+                <label for="State">State:</label>
+                <input type="State" id="state" name="State">
+
                 <label for="message">Message (optional):</label>
              <textarea id="message" name="message"></textarea>
+
                 <!-- <input type="number" id="amt" name="amount" min="1" required style="display: none;"> -->
               </div>
                 <button type="submit">
@@ -198,8 +207,9 @@
         <p>&copy; 2024 Donate For Group</p>
     </footer>
                                     <!-- footer end -->
-                                     
+                                         
 <script id="rendered-js">
+  console.log(amont , upid )
       var amtnt = document.getElementById('amt').value;
           console.log(amtnt)
         if(amtnt == "0"){
@@ -208,6 +218,7 @@
         function feeld() {
             document.getElementById("amt").style.display = "block";
         }
+       if(amont == "true"){
         const name = "DonateFor";
         const upi = "9586319762@okbizaxis";
         const amt = document.getElementById('amt').value;
@@ -225,6 +236,26 @@
           console.log('amts' + rs)
           openForm()
         }
+       
+       }
+       else{
+        const name = adminname ;
+        const upi = upid ;
+        const amt = document.getElementById('amt').value;
+        var url = "upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amt + "&tn=&cu=INR";
+        var mrc = upi ;
+        let qrCode = null;
+        function inputChnage(event) {
+          loder()
+          event.preventDefault();
+          const name = adminname;
+          const upi = upid;
+          const amt = document.getElementById('amt').value;
+          url = "upi://pay?pa=" + upi + "&pn=" + name + "&am=" + amt + "&tn=&cu=INR";
+          generateQRCode()
+          openForm()
+        }
+       }
         function generateQRCode() {
           var text = url; // Trim whitespace
           var bgColor = document.getElementById('bg-color-input').value;
